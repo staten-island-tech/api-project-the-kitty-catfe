@@ -1,18 +1,15 @@
 {
-  "name": "intro-to-webpack-modules",
+  "name": "cat-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:tailwind": "tailwind build dist/css/main.css -o dist/css/output.css",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "tailwindcss": "^1.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.41.0",
