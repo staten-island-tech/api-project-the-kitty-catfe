@@ -1,5 +1,12 @@
-const DOMString = {
-    userInput: document.getElementById('city');
+const DOMStrings = {
+    userInput: document.getElementById('city'),
 };
 
-console.log("DOMStrings.userInput")
+function getCity() {
+    DOMStrings.userInput.addEventListener("submit", async function(e){
+      e.preventDefault();
+      console.log('something happens');
+      });
+    }
+
+getCity();
