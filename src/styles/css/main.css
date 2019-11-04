@@ -35,18 +35,26 @@ nav {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
     
-    font-size: 1.45rem;
+    font-size: 1.8rem;
 
 
 }
 
 .brand-logo{
+    text-transform: uppercase !important;
+    letter-spacing: 0.2rem;
+    
+    border: #FFBA62 solid 0.2rem;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+
     margin-top:1.5rem;
     color: black !important;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
-    
-    size: 1.8rem;
+
+
+    size: 2rem !important;
 
 
     left: 8rem;
@@ -67,7 +75,7 @@ nav {
     margin: auto;
     height:55%;
 
-    background-image: url(cat-sleeping.jpg);
+    background-image: url(../../images/png/cat-sleeping.jpg);
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -76,4 +84,16 @@ nav {
     
     
 
+}
+
+.welcome{
+    margin-top: 4rem;
+    height: 10rem;
+    background-color:red;
+}
+
+.cat-window{
+    background-color: blue;
+    width: 60vw;
+    height: 50vh;
 }
