@@ -1,0 +1,79 @@
+html{
+    font-size: 62.5%;
+}
+*, *::after, ::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+    cursor: default;
+}
+
+nav ul  {
+    margin-top:1.5rem;
+}
+
+
+nav {
+    margin-top: 2rem;
+    background-color: white;
+    box-shadow: none !important;
+    border-top:    0.1rem solid black;
+    border-bottom: 0.1rem solid black;
+
+    height: 10rem;
+ 
+
+}
+
+#nav-mobile{
+    margin-right: 8rem;
+}
+
+.nav-link{
+    color: black !important;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    
+    font-size: 1.45rem;
+
+
+}
+
+.brand-logo{
+    margin-top:1.5rem;
+    color: black !important;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    
+    size: 1.8rem;
+
+
+    left: 8rem;
+
+}
+
+.cat-banner {
+    margin-top: 4rem;
+ 
+
+
+}
+
+.banner-video{
+   text-align:center;
+   
+    display: block;
+    margin: auto;
+    height:55%;
+
+    background-image: url(cat-sleeping.jpg);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+ 
+    
+    
+
+}
