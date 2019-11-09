@@ -11,12 +11,19 @@ const fetchAPI = {
         locationData = await locationData.json();
         const latitude = locationData.results[0].geometry.location.lat;
         const longitude = locationData.results[0].geometry.location.lng;
-        console.log(city);
-        console.log(latitude);
-        console.log(longitude);
+        getWeatherLink(latitude, longitude);
       } catch {}
     });
   },
-  getForecastLink() {}
+  getWeatherLink(latitude, longitude) {
+    try {
+      let weatherLinkData = await fetch(`https://api.weather.gov/points/${latitude},${longitude}`);
+      weatherLinkData = weatherLinkData.json();
+      const generalForecastData = weatherLinkData.properties.forecast;
+      const hourlyForecastData = weatherLinkData.properties.forecastHourly;
+      console.log(generalForecastData);
+      console.log(hourlyForecastData);
+    } catch {}
+  }
 };
 export { fetchAPI };
