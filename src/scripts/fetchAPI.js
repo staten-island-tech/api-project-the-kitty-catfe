@@ -8,3 +8,4 @@ const fetchAPI = {
     });
   }
 };
+export { fetchAPI };
