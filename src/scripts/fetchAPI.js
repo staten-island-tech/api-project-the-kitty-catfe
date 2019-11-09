@@ -21,6 +21,8 @@ const fetchAPI = {
         `https://api.weather.gov/points/${latitude},${longitude}`
       );
       weatherLinkData = weatherLinkData.json();
+      const weatherForecastData = weatherLinkData.result;
+      console.log(weatherForecastData);
     } catch {}
   }
 };
