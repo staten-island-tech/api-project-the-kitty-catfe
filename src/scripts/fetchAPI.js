@@ -15,9 +15,11 @@ const fetchAPI = {
       } catch {}
     });
   },
-  getWeatherLink(latitude, longitude) {
+  async getWeatherLink(latitude, longitude) {
     try {
-      let weatherLinkData = await fetch(`https://api.weather.gov/points/${latitude},${longitude}`);
+      let weatherLinkData = await fetch(
+        `https://api.weather.gov/points/${latitude},${longitude}`
+      );
       weatherLinkData = weatherLinkData.json();
       const generalForecastData = weatherLinkData.properties.forecast;
       const hourlyForecastData = weatherLinkData.properties.forecastHourly;
