@@ -21,16 +21,19 @@ const fetchAPI = {
         `https://api.weather.gov/points/${latitude},${longitude}`
       );
       weatherLinkData = await weatherLinkData.json();
-      const weatherForecastData = weatherLinkData.properties.forecast;
-      const weatherHourlyForecastData =
+      const weatherForecastLink = weatherLinkData.properties.forecast;
+      const weatherHourlyForecastLink =
         weatherLinkData.properties.forecastHourly;
+      fetchAPI.getWeather(weatherForecastLink, weatherHourlyForecastLink);
     } catch {}
   },
   async getWeather(weatherForecastData, weatherHourlyForecastData) {
     try {
-      let forecast = await fetch(weatherForecastData).json();
-      let forecastHourly = await fetch(weatherHourlyForecastData).json();
-    }
+      let forecast = await fetch(weatherForecastData);
+      forecast = await forecast.json();
+      let forecastHourly = await fetch(weatherHourlyForecastData);
+      forecastHourly = forecastHourly.json();
+    } catch {}
   }
 };
 export { fetchAPI };
