@@ -25,6 +25,12 @@ const fetchAPI = {
       const weatherHourlyForecastData =
         weatherLinkData.properties.forecastHourly;
     } catch {}
+  },
+  async getWeather(weatherForecastData, weatherHourlyForecastData) {
+    try {
+      let forecast = await fetch(weatherForecastData).json();
+      let forecastHourly = await fetch(weatherHourlyForecastData).json();
+    }
   }
 };
 export { fetchAPI };
