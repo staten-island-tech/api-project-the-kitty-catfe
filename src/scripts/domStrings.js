@@ -1,5 +1,5 @@
-const DOMString = {
-    userInput: document.getElementById('city');
+const DOMStrings = {
+  userInputData: document.querySelector('#city').value,
+  userInputClick: document.querySelector('#search')
 };
-
-console.log("DOMStrings.userInput")
+export { DOMStrings };
