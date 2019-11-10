@@ -39,39 +39,38 @@ function dataConstruction(
     currentTimeData.getUTCMonth() + 1,
     currentTimeData.getUTCDate(),
     currentTimeData.getUTCHours(),
-    currentTimeData.getTimezoneOffset / 60
+    currentTimeData.getTimezoneOffset() / 60
   ];
-  let start;
+  let start, a, b;
   let temperatureFinal = [];
-  for (i = 0; i <= timeAndDate[4] + 10; i++) {
+  for (a = 0; a <= timeAndDate[4] + 24; a++) {
     if (
-      temperatureInitial[i].validTime ===
+      temperatureInitial[a].validTime ===
         `${timeAndDate[0]}-${timeAndDate[1]}-${timeAndDate[2]}T${
           timeAndDate[3]
-        }:00:00+0:00/PT1H` ||
-      temperatureInitial[i].validTime ===
+        }:00:00+00:00/PT1H` ||
+      temperatureInitial[a].validTime ===
         `${timeAndDate[0]}-${timeAndDate[1]}-${
           timeAndDate[2]
-        }T${timeAndDate[3] - 1}:00:00+0:00/PT2H` ||
-      temperatureInitial[i].validTime ===
+        }T${timeAndDate[3] - 1}:00:00+00:00/PT2H` ||
+      temperatureInitial[a].validTime ===
         `${timeAndDate[0]}-${timeAndDate[1]}-${
           timeAndDate[2]
-        }T${timeAndDate[3] - 2}:00:00+0:00/PT3H`
+        }T${timeAndDate[3] - 2}:00:00+00:00/PT3H`
     ) {
       start = true;
     }
     if (start === true) {
-      let iteration = temperatureInitial[i].validTime.split('/PT');
+      let iteration = temperatureInitial[a].validTime.split('/PT');
       iteration = iteration[1].split('H');
       iteration = parseInt(iteration[0]);
-      for (x = 1; x <= iteration; x++) {
-        temperatureFinal = temperatureFinal.push(temperatureInitial[i].value);
+      for (b = 1; b <= iteration; b++) {
+        temperatureFinal.push(temperatureInitial[a].value);
       }
     }
-    if (i === timeAndDate[4] + 10) {
+    if (a === timeAndDate[4] + 24) {
       start = false;
     }
   }
-  console.log(temperatureFinal);
 }
 export { dataConstruction };

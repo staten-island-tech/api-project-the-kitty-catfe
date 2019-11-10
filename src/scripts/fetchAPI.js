@@ -1,4 +1,5 @@
 import { DOMStrings } from './domStrings.js';
+import { dataConstruction } from './dataConstruction.js';
 const fetchAPI = {
   getLocation() {
     DOMStrings.userInputClick.addEventListener('click', async function(event) {
@@ -64,6 +65,13 @@ const fetchAPI = {
       forecastGridData = forecastGridData.properties;
       const sunrise = sunriseSunset.results.sunrise;
       const sunset = sunriseSunset.results.sunset;
+      dataConstruction(
+        forecastData,
+        forecastHourlyData,
+        forecastGridData,
+        sunrise,
+        sunset
+      );
     } catch {}
   }
 };
