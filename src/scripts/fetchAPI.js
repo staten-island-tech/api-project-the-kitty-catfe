@@ -24,10 +24,23 @@ const fetchAPI = {
       const forecastLink = weatherLinks.properties.forecast;
       const forecastHourlyLink = weatherLinks.properties.forecastHourly;
       const forecastGridLink = weatherLinks.properties.forecastGridData;
-      fetchAPI.getWeather(forecastLink, forecastHourlyLink, forecastGridLink);
+      fetchAPI.getWeather(
+        latitude,
+        longitude,
+        forecastLink,
+        forecastHourlyLink,
+        forecastGridLink
+      );
     } catch {}
   },
-  async getWeather(forecastLink, forecastHourlyLink, forecastGridLink) {
+  async getWeather(
+    latitude,
+    longitude,
+    forecastLink,
+    forecastHourlyLink,
+    forecastGridLink
+  ) {
+    const currentDate = new Date();
     try {
       let forecastData = await fetch(forecastLink);
       forecastData = await forecastData.json();
@@ -38,6 +51,12 @@ const fetchAPI = {
       let forecastGridData = await fetch(forecastGridLink);
       forecastGridData = await forecastGridData.json();
       forecastGridData = forecastGridData.properties;
+      let sunriseSunset = await fetch(
+        `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()}&formatted=0`
+      );
+      sunriseSunset = await sunriseSunset.json();
+      const sunrise = sunriseSunset.results.sunrise;
+      const sunset = sunriseSunset.results.sunset;
     } catch {}
   }
 };
