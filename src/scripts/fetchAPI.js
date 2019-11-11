@@ -5,9 +5,10 @@ const fetchAPI = {
       event.preventDefault();
       const city = DOMStrings.userInputData.value.replace(' ', '+');
       try {
-        const locationData = await fetch(
+        let locationData = await fetch(
           `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyDi9Tn0USjAMQngfVAOQgsyBD9ZiCTuI9w`
-        ).then(result => result.json());
+        );
+        locationData = await locationData.json();
         const latitude = locationData.results[0].geometry.location.lat;
         const longitude = locationData.results[0].geometry.location.lng;
         fetchAPI.getWeatherLink(latitude, longitude);
@@ -16,9 +17,10 @@ const fetchAPI = {
   },
   async getWeatherLink(latitude, longitude) {
     try {
-      const weatherLinks = await fetch(
+      let weatherLinks = await fetch(
         `https://api.weather.gov/points/${latitude},${longitude}`
-      ).then(result => result.json());
+      );
+      weatherLinks = await weatherLinks.json();
       const forecastLink = weatherLinks.properties.forecast;
       const forecastHourlyLink = weatherLinks.properties.forecastHourly;
       const forecastGridLink = weatherLinks.properties.forecastGridData;
@@ -40,32 +42,21 @@ const fetchAPI = {
   ) {
     const currentDate = new Date();
     try {
-      let forecastData = fetch(forecastLink);
-      let forecastHourlyData = fetch(forecastHourlyLink);
-      let forecastGridData = fetch(forecastGridLink);
-      let sunriseSunset = fetch(
+      let forecastData = await fetch(forecastLink);
+      forecastData = await forecastData.json();
+      forecastData = forecastData.properties;
+      let forecastHourlyData = await fetch(forecastHourlyLink);
+      forecastHourlyData = await forecastHourlyData.json();
+      forecastHourlyData = forecastHourlyData.properties;
+      let forecastGridData = await fetch(forecastGridLink);
+      forecastGridData = await forecastGridData.json();
+      forecastGridData = forecastGridData.properties;
+      let sunriseSunset = await fetch(
         `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()}&formatted=0`
       );
-      const returnArray = await Promise.all([
-        forecastData,
-        forecastHourlyData,
-        forecastGridData,
-        sunriseSunset
-      ]);
-      const returnData = returnArray.map(result => result.json());
-      [
-        forecastData,
-        forecastHourlyData,
-        forecastGridData,
-        sunriseSunset
-      ] = await Promise.all(returnData);
-
-      forecastData = forecastData.properties;
-      forecastHourlyData = forecastHourlyData.properties;
-      forecastGridData = forecastGridData.properties;
+      sunriseSunset = await sunriseSunset.json();
       const sunrise = sunriseSunset.results.sunrise;
       const sunset = sunriseSunset.results.sunset;
-      console.log(sunrise);
     } catch {}
   }
 };
