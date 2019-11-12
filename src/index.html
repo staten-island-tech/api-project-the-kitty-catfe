@@ -4,10 +4,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
   </head>
   <body>
-    <label for="city"> City </label>
-    <input type="text" id="city" />
-    <button id="search">Search</button>
+    <ul class="sidenav sidenav-fixed">
+      <li>
+        <div class="user-view">
+          <a href="#!">
+            <img class="brand-logo" src="/images/png/logo.png" />
+          </a>
+        </div>
+      </li>
+      <li><div class="divider"></div></li>
+      <li><p class="subheader">Search for your City</p></li>
+      <li>
+        <label for="city"> City </label>
+        <input type="text" id="city" />
+        <button id="search">Search</button>
+        <div class="user-input">
+          <form class="form">
+            <div class="user-input-form input-field">
+              <label for="name">Album Name</label>
+              <input type="text" id="name" class="text-box validate" />
+            </div>
+            <div class="user-input-form input-field">
+              <label for="artist">Artist Name</label>
+              <input type="text" id="artist" class="text-box" />
+            </div>
+            <div class="user-input-form input-field">
+              <label for="year">Year Released</label>
+              <input type="text" id="year" class="text-box" />
+            </div>
+            <div class="user-input-form input-field">
+              <label for="genre">Genre</label>
+              <input type="text" id="genre" class="text-box" />
+            </div>
+            <div class="user-input-form input-field">
+              <label for="link">Image Link</label>
+              <input type="text" id="link" class="text-box" />
+            </div>
+            <div class="user-input-form">
+              <button
+                class="waves-effect waves-light btn center-align"
+                id="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
   </body>
 </html>
