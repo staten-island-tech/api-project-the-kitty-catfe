@@ -1,6 +1,6 @@
 
 
-const insertHTML = {
+const search = {
     document.getElementById("searchBtn").addEventListener("click", () => {
     let searchTerm = document.getElementById("searchInput").value;
     if (searchTerm) searchWeather(searchTerm);

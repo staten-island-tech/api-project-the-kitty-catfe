@@ -2,6 +2,15 @@
 
     <head>
         <link rel="stylesheet" href="./styles/css/style.css">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      />
+      <link rel="stylesheet" href="styles/css/forcats.css" />
+      <link
+        href="https://fonts.googleapis.com/icon?family=Lato|Source+Sans+Pro|CookieMaterial+Icons"
+        rel="stylesheet"
+      />   
     </head>
 
     <body>
@@ -9,7 +18,8 @@
             <input class="searchControl" type="text" placeholder="City Name or Zipcode" id="searchInput">
             <button class="searchControl" id="searchBtn">Search</button>
         </div>
-        <div id="weatherContainer">
+
+       <div id="weatherContainer">
             <div id="weatherDescription">
                 <h1 id="cityHeader"></h1>
                 <div id="weatherMain">
@@ -20,8 +30,36 @@
                 <hr>
                 <div id="windSpeed" class="bottom-details"></div>
                 <div id="humidity" class="bottom-details"></div>
-            </div>
+            </div> 
+
         </div>
+<!-- 
+      <div class="data display row">
+            <div class="col s6">
+                <div class="card element">
+                   <div class="card-image">
+                    <img src="${image}" onerror="this.onerror=null;this.src='images/png/the kitty forcats.png';">
+                   </div>
+                    <div id="weatherContainer">
+                        <div id="weatherDescription">
+                                <h1 id="cityHeader"></h1>
+                            <p class="card-subtitle" id="date"></div>
+                            <p class="card-subtitle" id="time"></div>
+                            <div class="card-content">
+                                <div class="weatherHourly" id="weatherDescriptionHeader"></div>
+                                <div class="temperature"></div>
+                                <br>
+                                <div class="humidity" id="humidity"></div>
+                                <div class="wind" id="windSpeed"> </div>
+                            <div class="remove">
+                                <button id="remove-city" class="waves-effect waves-light btn remove--city">Remove city</button>
+                            </div>
+                      </div> 
+                    </div>
+                 </div>
+               </div>
+        </div>  -->
+
         <script src="./scripts/script.js" ></script>
     </body>
 </html>
