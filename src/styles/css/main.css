@@ -273,8 +273,9 @@ nav {
 .btn-font{
     margin-top: -1.5rem;
     text-decoration: none;
-    color:  rgb(252, 179, 84);
+    color:  rgb(226, 149, 47);
     font-family: 'Lato', sans-serif;
+    cursor: pointer;
 }
 
 .btn, .btn:link, .btn:visited {
@@ -283,7 +284,7 @@ nav {
     padding: 3rem 4rem;
     display: inline-block;
     margin: 1rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     border-radius: 10rem;
     transition: all .2s;
     position: relative;
@@ -297,4 +298,9 @@ nav {
     transform: translateY(-1px);
     text-decoration: none;
     box-shadow: 0 .5rem 1rem rgb(73, 58, 39);
+    cursor: pointer;
+    }
+
+    .kittyforcats-logo:hover{
+    cursor: pointer;
     }
