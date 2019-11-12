@@ -32,7 +32,7 @@ nav {
 
 .nav-link{
     color: #342006 !important;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lora', serif;
     font-weight: lighter;
     text-transform:  uppercase;
     
@@ -52,7 +52,7 @@ nav {
 
     margin-top:1.5rem;
     color: #342006 !important;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lora', serif;
     font-weight: bold;
 
 
@@ -75,7 +75,7 @@ nav {
    
     display: block;
     margin: auto;
-    height:55%;
+    height:70%;
 
     background-image: linear-gradient(
 		to right bottom,
@@ -97,7 +97,7 @@ nav {
 .heading_text_box{
 	color:whitesmoke;
 	position: absolute;
-	top: 40%;
+	top: 55%;
 	left:50%;
 	text-align: center;
 	transform:translate(-50% , -50%); /*centers object w/ absolute positioning */
@@ -270,46 +270,31 @@ nav {
 }
 
 
-a:link {
-
-    font-family: 'Lato', sans-serif;
-    color: #73937E;
+.btn-font{
+    margin-top: -1.5rem;
     text-decoration: none;
-   
-
-}
-
-a:visited {
-    text-decoration: none; 
-    color:inherit;
-}
-
-
-.btn {
+    color:  rgb(252, 179, 84);
     font-family: 'Lato', sans-serif;
-	color: #73937E;
-	background-color: white;
-    width: 25rem;
-    height: 6rem;
+}
 
+.btn, .btn:link, .btn:visited {
 
-	font-size:1.5rem;
+   
+    padding: 3rem 4rem;
+    display: inline-block;
+    margin: 1rem;
+    font-size: 1.8rem;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+    background-color:white!important;
     
-	border: solid;
-	border-color: #73937E;
-	border-width: .5rem;
+    }
 
-
-	border-radius: 1rem;
-	padding:1rem;
-	margin-top:2rem;
-
-}
-
-.btn:hover {
-
-	color: #73937E;
-	transition-duration: 1s;
-	box-shadow: .2rem 1rem;
-
-}
+    .btn:hover{
+    transform: translateY(-1px);
+    text-decoration: none;
+    box-shadow: 0 .5rem 1rem rgb(73, 58, 39);
+    }
