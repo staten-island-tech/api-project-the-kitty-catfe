@@ -45,7 +45,8 @@ const fetchAPI = {
       let forecastHourlyData = fetch(forecastHourlyLink);
       let forecastGridData = fetch(forecastGridLink);
       let sunriseSunset = fetch(
-        `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${currentTimeData.getFullYear()}-${currentTimeData.getMonth()}-${currentTimeData.getDate()}&formatted=0`
+        `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${currentTimeData.getFullYear()}-${currentTimeData.getMonth() +
+          1}-${currentTimeData.getDate()}&formatted=0`
       );
       const returnArray = await Promise.all([
         forecastData,
