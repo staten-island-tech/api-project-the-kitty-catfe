@@ -1,0 +1,132 @@
+.kittyforcats-logo {
+  width: 200px;
+  padding-left: 4rem;
+
+  
+}
+
+.user-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.subheader {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+nav.top-nav {
+  height: 110px;
+  background-color: transparent;
+  width: 82.5vw;
+}
+nav.top-nav h1.header {
+  margin: 0;
+  padding-top: 22px;
+  color: #009688;
+}
+main {
+  padding-left: 300px;
+}
+header {
+  color: #342006 !important;
+  padding-left: 17.5%;
+  font-family: 'Lora', serif;
+  font-weight: lighter;
+
+
+    
+
+}
+ 
+.text-color{
+  color:  #FFBA62 !important;
+	font-family: 'Lora', serif;
+
+
+ 
+}
+button.remove-album {
+  margin-top: 10px;
+}
+.card-title {
+  margin-left: 10px;
+}
+.disc {
+  height: 400px;
+  width: 400px;
+  padding-top: 50px;
+}
+
+.initial-text {
+  color: #b2dfdb;
+  font-size: 16pt;
+}
+.sidenav {
+    width: 17.5vw;
+}
+
+
+.btn{
+  background-color: #FFBA62;
+}
+
+.weather-cat{
+  width: 20.5rem;
+ 
+}
+
+
+
+*, *::after, ::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    cursor: default;
+}
+
+
+button.remove-album {
+    margin-top: 2rem;
+  }
+
+.data{
+  margin-top: 2rem;
+  margin-left: -10rem;
+}
+
+.card-title {
+    margin-left: 10px;
+}
+
+.card-image{
+ width: 300px;
+ margin-left: 1.2rem;
+
+    
+}
+.card-title{
+    
+    font-size: 3rem;
+    margin-left: 0.75rem;
+}
+
+.card-subtitle{
+    margin-left: 1rem;
+    margin-left:2rem;
+ }
+.card-content{
+  
+    font-size: 1.1rem;
+
+
+}
+
+.weatherHourly{
+    font-size: 1.3rem;
+}
+
+.temperature{
+    font-size: 1.2rem;
+}
+
+
