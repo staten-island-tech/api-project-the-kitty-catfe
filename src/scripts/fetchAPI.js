@@ -30,9 +30,7 @@ const fetchAPI = {
         forecastHourlyLink,
         forecastGridLink
       );
-    } catch {
-      console.log(error);
-    }
+    } catch {}
   },
   async getWeather(
     latitude,
