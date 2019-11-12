@@ -63,6 +63,45 @@ const calculate = {
       hour = '0' + hour;
     }
     return `${year}-${month}-${day}T${hour}:00:00+00:00`;
+  },
+  angleToDirection(angle) {
+    if (angle === 0) {
+      return 'North';
+    } else if (angle > 0 && angle < 90) {
+      return 'Northeast';
+    } else if (angle === 90) {
+      return 'East';
+    } else if (angle > 90 && angle < 180) {
+      return 'Southeast';
+    } else if (angle === 180) {
+      return 'South';
+    } else if (angle > 180 && angle < 270) {
+      return 'Southwest';
+    } else if (angle === 270) {
+      return 'West';
+    } else if (angle > 270 && angle < 360) {
+      return 'Northwest';
+    }
+  },
+  toMilesPerHour(metersPerSecond) {
+    return Math.round(metersPerSecond * 2.2369);
+  },
+  toFahrenheit(celsius) {
+    return Math.round(celsius * 1.8 + 32);
+  },
+  toTimeZone(timeCode) {
+    const timeZone = new Date().getTimezoneOffset() / 60;
+    let hour = parseInt(timeCode.split('T')[1].split(':')[0]);
+    let minute = timeCode.split('T')[1].split(':')[1];
+    hour = hour - timeZone;
+    if (hour < 12) {
+      return `${hour}:${minute} AM`;
+    } else if (hour === 12) {
+      return `12:${minute} PM`;
+    } else if (hour >= 13) {
+      hour = hour - 12;
+      return `${hour}:${minute} PM`;
+    }
   }
 };
 export { calculate };

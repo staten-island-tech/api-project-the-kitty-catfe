@@ -58,12 +58,14 @@ function dataConstruction(
   sunrise,
   sunset
 ) {
-  const temperature = forecastHourlyData.periods.map(
-    value => value.temperature
-  );
-  const weatherHourly = forecastHourlyData.periods.map(
+  const sunriseTime = calculate.toTimeZone(sunrise);
+  const sunsetTime = calculate.toTimeZone(sunset);
+  let temperature = forecastHourlyData.periods.map(value => value.temperature);
+  temperature.length = 26;
+  let weatherHourly = forecastHourlyData.periods.map(
     value => value.shortForecast
   );
+  weatherHourly.length = 26;
   const precipitation = search(
     interpret(forecastGridData.probabilityOfPrecipitation.values),
     calculate.currentDateAndHour()
@@ -72,25 +74,37 @@ function dataConstruction(
     interpret(forecastGridData.relativeHumidity.values),
     calculate.currentDateAndHour()
   );
-  const windDirection = search(
-    interpret(forecastGridData.windDirection.values),
-    calculate.currentDateAndHour()
+  const windDirection = calculate.angleToDirection(
+    search(
+      interpret(forecastGridData.windDirection.values),
+      calculate.currentDateAndHour()
+    )
   );
-  console.log(windDirection);
+  const windSpeed = calculate.toMilesPerHour(
+    search(
+      interpret(forecastGridData.windSpeed.values),
+      calculate.currentDateAndHour()
+    )
+  );
   let temperatureMaximum = [];
   let temperatureMinimum = [];
   let weatherDaily = [];
   let start;
+  const tomorrow = calculate.addDays(1);
   for (let a = 0; a <= 6; a++) {
     if (
       forecastGridData.maxTemperature.values[a].validTime.split('T')[0] ===
-      `${new Date().getFullYear()}-${new Date().getMonth() +
-        1}-${new Date().getDate()}`
+        `${new Date().getFullYear()}-${new Date().getMonth() +
+          1}-${new Date().getDate()}` ||
+      forecastGridData.maxTemperature.values[a].validTime.split('T')[0] ===
+        `${tomorrow[0]}-${tomorrow[1]}-${tomorrow[2]}`
     ) {
       start = true;
     }
     if (start === true) {
-      temperatureMaximum.push(forecastGridData.maxTemperature.values[a].value);
+      temperatureMaximum.push(
+        calculate.toFahrenheit(forecastGridData.maxTemperature.values[a].value)
+      );
     }
     if (a === 6) {
       start = false;
@@ -99,19 +113,22 @@ function dataConstruction(
   for (let b = 0; b <= 6; b++) {
     if (
       forecastGridData.minTemperature.values[b].validTime.split('T')[0] ===
-      `${new Date().getFullYear()}-${new Date().getMonth() +
-        1}-${new Date().getDate()}`
+        `${new Date().getFullYear()}-${new Date().getMonth() +
+          1}-${new Date().getDate()}` ||
+      forecastGridData.minTemperature.values[b].validTime.split('T')[0] ===
+        `${tomorrow[0]}-${tomorrow[1]}-${tomorrow[2]}`
     ) {
       start = true;
     }
     if (start === true) {
-      temperatureMinimum.push(forecastGridData.minTemperature.values[b].value);
+      temperatureMinimum.push(
+        calculate.toFahrenheit(forecastGridData.minTemperature.values[b].value)
+      );
     }
     if (b === 6) {
       start = false;
     }
   }
-  const tomorrow = calculate.addDays(1);
   for (let c = 0; c <= 10; c++) {
     if (
       forecastData.periods[c].startTime.split(':')[0] ===
@@ -129,5 +146,19 @@ function dataConstruction(
       start = false;
     }
   }
+  const forecast = new Forecast(
+    temperature,
+    temperatureMaximum,
+    temperatureMinimum,
+    weatherHourly,
+    weatherDaily,
+    precipitation,
+    humidity,
+    windDirection,
+    windSpeed,
+    sunriseTime,
+    sunsetTime
+  );
+  console.log(forecast);
 }
 export { dataConstruction };
