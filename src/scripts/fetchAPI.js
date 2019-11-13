@@ -4,16 +4,6 @@ const fetchAPI = {
   getLocation() {
     DOMStrings.userInputClick.addEventListener("click", async function(event) {
       event.preventDefault();
-      if (
-        DOMStrings.userInputData.value === null ||
-        DOMStrings.userInputData.value === undefined
-      ) {
-        M.toast({
-          html: "Please enter a valid zipcode or city.",
-          displayLength: 4000,
-          classes: "rounded red"
-        });
-      }
       const zipcode = DOMStrings.userInputData.value.replace(" ", "+");
       try {
         const locationData = await fetch(
