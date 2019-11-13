@@ -1,21 +1,33 @@
-import { DOMStrings } from './domStrings.js';
-import { dataConstruction } from './dataConstruction.js';
+import { DOMStrings } from "./domStrings.js";
+import { dataConstruction } from "./dataConstruction.js";
 const fetchAPI = {
   getLocation() {
-    DOMStrings.userInputClick.addEventListener('click', async function(event) {
+    DOMStrings.userInputClick.addEventListener("click", async function(event) {
       event.preventDefault();
-      const city = DOMStrings.userInputData.value.replace(' ', '+');
+      if (
+        DOMStrings.userInputData.value === null ||
+        DOMStrings.userInputData.value === undefined
+      ) {
+        M.toast({
+          html: "Please enter a valid zipcode or city.",
+          displayLength: 4000,
+          classes: "rounded red"
+        });
+      }
+      const zipcode = DOMStrings.userInputData.value.replace(" ", "+");
       try {
         const locationData = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyDi9Tn0USjAMQngfVAOQgsyBD9ZiCTuI9w`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyDi9Tn0USjAMQngfVAOQgsyBD9ZiCTuI9w`
         ).then(result => result.json());
         const latitude = locationData.results[0].geometry.location.lat;
         const longitude = locationData.results[0].geometry.location.lng;
-        fetchAPI.getWeatherLink(latitude, longitude);
+        const cityName =
+          locationData.results[0].address_components[1].long_name;
+        fetchAPI.getWeatherLink(latitude, longitude, cityName);
       } catch {}
     });
   },
-  async getWeatherLink(latitude, longitude) {
+  async getWeatherLink(latitude, longitude, cityName) {
     try {
       const weatherLinks = await fetch(
         `https://api.weather.gov/points/${latitude},${longitude}`
@@ -28,7 +40,8 @@ const fetchAPI = {
         longitude,
         forecastLink,
         forecastHourlyLink,
-        forecastGridLink
+        forecastGridLink,
+        cityName
       );
     } catch {}
   },
@@ -37,7 +50,8 @@ const fetchAPI = {
     longitude,
     forecastLink,
     forecastHourlyLink,
-    forecastGridLink
+    forecastGridLink,
+    cityName
   ) {
     const currentTimeData = new Date();
     try {
@@ -71,7 +85,8 @@ const fetchAPI = {
         forecastHourlyData,
         forecastGridData,
         sunrise,
-        sunset
+        sunset,
+        cityName
       );
     } catch {}
   }

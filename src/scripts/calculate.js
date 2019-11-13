@@ -5,13 +5,13 @@ const calculate = {
     let day = new Date().getUTCDate();
     let hour = new Date().getUTCHours();
     if (month < 10) {
-      month = '0' + month;
+      month = "0" + month;
     }
     if (day < 10) {
-      day = '0' + day;
+      day = "0" + day;
     }
     if (hour < 10) {
-      hour = '0' + hour;
+      hour = "0" + hour;
     }
     return `${year}-${month}-${day}T${hour}:00:00+00:00`;
   },
@@ -35,10 +35,10 @@ const calculate = {
     return adjustedDate;
   },
   addHours(timeCode, numberOfHours) {
-    let year = parseInt(timeCode.split('-')[0]);
-    let month = parseInt(timeCode.split('-')[1]);
-    let day = parseInt(timeCode.split('-')[2].split('T')[0]);
-    let hour = parseInt(timeCode.split('T')[1].split(':')[0]);
+    let year = parseInt(timeCode.split("-")[0]);
+    let month = parseInt(timeCode.split("-")[1]);
+    let day = parseInt(timeCode.split("-")[2].split("T")[0]);
+    let hour = parseInt(timeCode.split("T")[1].split(":")[0]);
     let daysInMonth = new Date(year, month, 0).getDate();
     hour = hour + numberOfHours;
     if (hour > 23) {
@@ -54,33 +54,33 @@ const calculate = {
       month = month - 12;
     }
     if (month < 10) {
-      month = '0' + month;
+      month = "0" + month;
     }
     if (day < 10) {
-      day = '0' + day;
+      day = "0" + day;
     }
     if (hour < 10) {
-      hour = '0' + hour;
+      hour = "0" + hour;
     }
     return `${year}-${month}-${day}T${hour}:00:00+00:00`;
   },
   angleToDirection(angle) {
     if (angle === 0) {
-      return 'North';
+      return "North";
     } else if (angle > 0 && angle < 90) {
-      return 'Northeast';
+      return "Northeast";
     } else if (angle === 90) {
-      return 'East';
+      return "East";
     } else if (angle > 90 && angle < 180) {
-      return 'Southeast';
+      return "Southeast";
     } else if (angle === 180) {
-      return 'South';
+      return "South";
     } else if (angle > 180 && angle < 270) {
-      return 'Southwest';
+      return "Southwest";
     } else if (angle === 270) {
-      return 'West';
+      return "West";
     } else if (angle > 270 && angle < 360) {
-      return 'Northwest';
+      return "Northwest";
     }
   },
   toMilesPerHour(metersPerSecond) {
@@ -91,17 +91,28 @@ const calculate = {
   },
   toTimeZone(timeCode) {
     const timeZone = new Date().getTimezoneOffset() / 60;
-    let hour = parseInt(timeCode.split('T')[1].split(':')[0]);
-    let minute = timeCode.split('T')[1].split(':')[1];
+    let hour = parseInt(timeCode.split("T")[1].split(":")[0]);
+    let minute = timeCode.split("T")[1].split(":")[1];
     hour = hour - timeZone;
-    if (hour < 12) {
-      return `${hour}:${minute} AM`;
-    } else if (hour === 12) {
-      return `12:${minute} PM`;
-    } else if (hour >= 13) {
-      hour = hour - 12;
-      return `${hour}:${minute} PM`;
+    let temp;
+    if (hour < 0) {
+      hour = 24 + hour;
+      temp = `${hour}:${minute} PM`;
     }
+    if (hour === 0) {
+      temp = `12:${minute} AM`;
+    }
+    if (hour > 0 && hour < 12) {
+      temp = `${hour}:${minute} AM`;
+    }
+    if (hour === 12) {
+      temp = `12:${minute} PM`;
+    }
+    if (hour >= 13) {
+      hour = hour - 12;
+      temp = `${hour}:${minute} PM`;
+    }
+    return temp;
   }
 };
 export { calculate };

@@ -1,0 +1,64 @@
+body {
+  background-image: url("../../media/clear.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-condition {
+  width: 10vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  float: right;
+}
+h1 {
+  font-size: 4.5vw;
+  margin: 0px;
+}
+p {
+  font-size: 1vw;
+}
+span {
+  padding: 0px 0.75vw;
+}
+.max {
+  color: #b71c1c;
+}
+.min {
+  color: #0d47a1;
+  padding-right: 0px;
+}
+.box {
+  margin-top: 2.5vw;
+  padding: 0.5vw 1vw;
+  border: 0.2vw solid #bdbdbd;
+  border-radius: 0.75vw;
+}
+.icon {
+  width: 2vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.margin {
+  margin-top: 5vw;
+  background-color: #ffffff;
+  opacity: 0.7;
+  padding: 1vw;
+}
+.logo {
+  margin: 10px 0px 0px 10px;
+  width: 75px;
+}
+.input-field {
+  margin-left: auto;
+}
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
