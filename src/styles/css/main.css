@@ -1,0 +1,348 @@
+html{
+  font-size: 62.5%;
+}
+*, *::after, ::before{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  cursor: default;
+}
+
+nav ul  {
+  margin-top:1.5rem;
+}
+
+
+nav {
+  margin-top: 2rem;
+  background-color: white;
+  box-shadow: none !important;
+  border-top:    0.1rem solid #FFBA62;
+  border-bottom: 0.1rem solid #FFBA62;
+
+  height: 10rem;
+
+
+}
+
+#nav-mobile{
+  margin-right: 8rem;
+}
+
+.nav-link{
+  color: #342006 !important;
+  font-family: 'Lora', serif;
+  font-weight: lighter;
+  text-transform:  uppercase;
+  
+  font-size: 1.45rem;
+  letter-spacing: 0.2rem;
+
+
+}
+
+.brand-logo{
+  text-transform: uppercase !important;
+  letter-spacing: 0.2rem;
+  
+
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+
+  margin-top:1.5rem;
+  color: #342006 !important;
+  font-family: 'Lora', serif;
+  font-weight: bold;
+
+
+  size: 2rem !important;
+
+
+  left: 8rem;
+
+}
+
+.cat-banner {
+  margin-top: 4rem;
+
+
+
+}
+
+.banner-video{
+ text-align:center;
+ 
+  display: block;
+  margin: auto;
+  height:70%;
+
+  background-image: linear-gradient(
+  to right bottom,
+  rgba(191,155,101,0.25) ,
+  rgba(249, 234, 143, 0.4)) ,
+  url(../../images/png/cat-sleeping.jpg);
+  background-size:cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+  
+
+  
+  
+
+}
+
+
+
+.heading_text_box{
+color:whitesmoke;
+position: absolute;
+top: 55%;
+left:50%;
+text-align: center;
+transform:translate(-50% , -50%); /*centers object w/ absolute positioning */
+
+  margin-top:2rem;
+
+
+}
+
+.heading-primary-main {
+font-family: 'Lora', serif;
+font-size: 6rem;
+font-weight: 400;
+letter-spacing: 3.2rem;
+
+animation-name: shrink;
+animation-duration: 1.5s;
+
+  text-transform: uppercase;
+  
+text-shadow: 4px 4px 2px  rgb(116, 94, 67);
+
+  margin-top:2rem;
+  
+}
+
+.heading-primary-sub {
+
+  font-family: 'Cookie', cursive;
+font-size:3.2rem;
+margin-top:4rem;
+margin-bottom:2rem;
+letter-spacing:0.4rem;
+
+text-shadow: 4px 4px 2px rgb(73, 58, 39);
+
+animation-name: moveInLeft;
+  animation-duration: 3s;
+  
+
+}
+
+
+
+
+
+
+@keyframes moveInLeft{
+0% {
+  opacity:0;
+  transform: translate( -100rem);
+}
+
+50%{
+  opacity:50%;
+
+
+}
+100%{
+  opacity:100%;
+
+}
+}
+
+
+
+@keyframes fadeInDown {
+ 0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+ }
+ 100% {
+    opacity: 1;
+    transform: translateY(0);
+ }
+
+
+}
+
+
+@keyframes shrink{
+0% {
+  opacity:0;
+
+      transform: scale(.4, .4);
+  width:300rem;
+}
+
+50%{
+
+opacity:50%;
+width:100rem;
+
+}
+
+
+100%{
+  opacity:100%;
+  transform: scale(1, 1);
+
+}
+
+}
+
+
+
+
+.welcome{
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  line-height: 10rem;
+  height: 10rem;
+  text-align: center;
+
+  
+ 
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.2rem;
+  
+
+  font-size: 6rem !important;
+
+  color: #342006 !important;
+  border: 1.5px solid #FFBA62;
+  font-family: 'Cookie', cursive;
+  
+  
+
+ 
+}
+
+
+.section2-flex{
+  display: flex;
+  justify-content: space-evenly;
+}
+.description{
+
+  width:40vw;
+  height: 30vh;
+}
+
+.kittyforcats{
+  
+ /* background-image: url(../../images/png/the\ kitty\ forcats.png);*/
+  background-size: cover;
+  background-position: center center;
+  width: 15vw;
+  height: 30vh;
+
+  
+}
+
+.weather-forcats-introduction{
+  font-family: 'Cookie', cursive;
+  font-size: 4rem;
+  letter-spacing: 0.2rem;
+
+
+}
+
+.name-introduction {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+}
+
+.redirect-introduction{
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+}
+
+
+
+.insertionPoint {
+  background-image: url("../../media/clear.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 20rem;
+}
+
+
+
+.main-condition {
+  width: 10vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  float: right;
+}
+h1 {
+  font-size: 4.5vw;
+  margin: 0px;
+}
+p {
+  font-size: 1vw;
+}
+span {
+  padding: 0px 0.75vw;
+}
+.max {
+  color: #b71c1c;
+}
+.min {
+  color: #0d47a1;
+  padding-right: 0px;
+}
+.box {
+  margin-top: 2.5vw;
+  padding: 0.5vw 1vw;
+  border: 0.2vw solid #bdbdbd;
+  border-radius: 0.75vw;
+}
+.icon {
+  width: 2vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.margin {
+  margin-top: 5vw;
+  background-color: #ffffff;
+  opacity: 0.7;
+  padding: 1vw;
+}
+.logo {
+  margin: 10px 0px 0px 10px;
+  width: 75px;
+}
+.input-field {
+  margin-left: auto;
+  height: 4rem;
+  
+}
+.enter-zipcode{
+  size: 1rem;
+
+}
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
