@@ -300,11 +300,13 @@ span {
   padding: 0px 0.75vw;
 }
 .max {
+
   color: #b71c1c;
+  size:1rem;
 }
 .min {
   color: #0d47a1;
-  padding-right: 0px;
+  size:1rem;
 }
 .box {
   margin-top: 2.5vw;
@@ -348,3 +350,8 @@ button {
   margin-top: -1rem;
   margin-left: 15rem;
 }
+
+.sub-text{
+  font: 3rem;
+}
+

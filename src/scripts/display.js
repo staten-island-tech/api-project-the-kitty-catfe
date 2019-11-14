@@ -1,20 +1,6 @@
 import { DOMStrings } from "./domStrings.js";
-let currentDay = new Date().getDay();
-if (currentDay === 0) {
-  currentDay = "Sunday";
-} else if (currentDay === 1) {
-  currentDay = "Monday";
-} else if (currentDay === 2) {
-  currentDay = "Tuesday";
-} else if (currentDay === 3) {
-  currentDay = "Wednesday";
-} else if (currentDay === 4) {
-  currentDay = "Thursday";
-} else if (currentDay === 5) {
-  currentDay = "Friday";
-} else {
-  currentDay = "Saturday";
-}
+import { timeAndDate } from "./timeAndDate.js";
+
 function addHours(numberOfHours) {
   let hours = new Date().getHours() + numberOfHours;
   if (hours > 0 && hours < 12) {
@@ -28,19 +14,19 @@ function addHours(numberOfHours) {
   return hours;
 }
 function displayInsertion(object) {
-  const html = `<div class="container margin">
+  const html = `<div class="container margin ">
   <div class="row">
     <div class=" s6">
       <div class="">
-        <img class="main-condition" src="./media/svg/${object.weatherHourly[0].toLowerCase()}.svg" />
+        <img class="main-condition" src="./media/svg/${object.weatherHourly[0].toLowerCase()}cat.jpg" />
         <h5 class="text-center">${object.weatherHourly[0]}</h5>
         <h1 class="text-center">${object.temperature[0]}&#176;</h1>
+        <p class="text-center">
+        <span class=" min">&#8657; ${object.temperatureMinimum[0]}&#8457; </span> <span class="max"> &#8659; ${object.temperatureMaximum[0]} &#8457;</span>
+      </p>
         <h4 class="text-center">${object.cityName}</h4>
-        <p>
-          ${currentDay}
-          <span class="text-right min">${object.temperatureMinimum[0]}</span>
-          <span class="text-right max">${object.temperatureMaximum[0]}</span>
-        </p>
+        <h5 class="text-center">${timeAndDate.givenDate(timeAndDate.givenDate)} | ${timeAndDate.currentTime(timeAndDate.hours)} </h5>
+       <br>
       </div>
       <div class="">
         <div class="row">

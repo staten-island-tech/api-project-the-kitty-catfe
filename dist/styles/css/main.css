@@ -230,10 +230,6 @@ width:100rem;
 }
 
 
-.section2-flex{
-  display: flex;
-  justify-content: space-evenly;
-}
 .description{
 
   width:40vw;
@@ -333,6 +329,7 @@ span {
   width: 75px;
 }
 .input-field {
+   margin-top: 5rem;
   margin-left: auto;
   height: 4rem;
   
@@ -345,4 +342,13 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.weather-cat{
+  margin-top: -1rem;
+  margin-left: 15rem;
+}
+
+.sub-text{
+  font: 3rem;
 }

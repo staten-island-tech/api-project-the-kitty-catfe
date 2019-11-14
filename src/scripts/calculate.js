@@ -114,5 +114,7 @@ const calculate = {
     }
     return temp;
   }
+
+  
 };
 export { calculate };
