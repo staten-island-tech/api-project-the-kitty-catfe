@@ -24,7 +24,7 @@ function displayInsertion(object) {
         <h5 class="text-center">${object.weatherHourly[0]}</h5>
         <h1 class="text-center">${object.temperature[0]}&#176;</h1>
         <p class="text-center">
-        <span class=" min">&#8657; ${object.temperatureMinimum[0]}&#8457; </span> <span class="max"> &#8659; ${object.temperatureMaximum[0]} &#8457;</span>
+        <span class=" max">&#8657; ${object.temperatureMaximum[0]}&#8457; </span> <span class="min"> &#8659; ${object.temperatureMinimum[0]} &#8457;</span>
       </p>
         <h4 class="text-center">${object.cityName}</h4>
         <h5 class="text-center">${timeAndDate.givenDate(timeAndDate.givenDate)} | ${timeAndDate.currentTime(timeAndDate.hours)} </h5>
@@ -72,7 +72,5 @@ function displayInsertion(object) {
 }
 
 
-function noenter() {
-  return !(window.event && window.event.keyCode == 13); }
 
 export { displayInsertion };

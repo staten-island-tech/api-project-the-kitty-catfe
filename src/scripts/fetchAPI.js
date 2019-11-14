@@ -14,6 +14,7 @@ const fetchAPI = {
         const cityName =
           locationData.results[0].address_components[1].long_name;
         fetchAPI.getWeatherLink(latitude, longitude, cityName);
+        userDisplay.removeFields();
       } catch {
         alert("Please enter a valid location.");
       }
