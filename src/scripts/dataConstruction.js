@@ -1,5 +1,6 @@
 import { calculate } from "./calculate.js";
 import { displayInsertion } from "./display.js";
+
 class Forecast {
   constructor(
     temperature,
@@ -209,5 +210,6 @@ function dataConstruction(
     cityName
   );
   displayInsertion(forecast);
+  
 }
 export { dataConstruction };

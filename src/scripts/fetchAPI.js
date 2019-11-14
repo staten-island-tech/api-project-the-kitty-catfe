@@ -81,6 +81,6 @@ const fetchAPI = {
         cityName
       );
     } catch {}
-  }
+  },
 };
 export { fetchAPI };

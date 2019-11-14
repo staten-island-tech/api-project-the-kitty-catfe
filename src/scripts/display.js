@@ -13,12 +13,14 @@ function addHours(numberOfHours) {
   }
   return hours;
 }
+
 function displayInsertion(object) {
+
   const html = `<div class="container margin ">
   <div class="row">
     <div class=" s6">
       <div class="">
-        <img class="main-condition" src="./media/svg/${object.weatherHourly[0].toLowerCase()}cat.jpg" />
+          <img class="main-condition" src="./images/jpg/${object.weatherHourly[0].toLowerCase()}cat.jpg" />
         <h5 class="text-center">${object.weatherHourly[0]}</h5>
         <h1 class="text-center">${object.temperature[0]}&#176;</h1>
         <p class="text-center">
@@ -66,5 +68,11 @@ function displayInsertion(object) {
   </div>
 </div>`;
   DOMStrings.insertionPoint.insertAdjacentHTML("beforeend", html);
+  e.preventDefault();
 }
+
+
+function noenter() {
+  return !(window.event && window.event.keyCode == 13); }
+
 export { displayInsertion };
