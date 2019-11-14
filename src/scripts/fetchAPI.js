@@ -14,7 +14,7 @@ const fetchAPI = {
         const longitude = locationData.results[0].geometry.location.lng;
         const cityName = locationData.results[0].formatted_address;
         fetchAPI.getWeatherLink(latitude, longitude, cityName);
-        userDisplay.removeFields();
+        document.querySelector(".form").reset();
       } catch {
         alert("Please enter a valid location.");
       }
