@@ -37,7 +37,14 @@ function displayInsertion(object) {
         }&#8457; </span> <span class="min"> &#8659; ${
     object.temperatureMinimum[0]
   } &#8457;</span>
+  
       </p>
+      <p class="text-center">
+      <span> Sunrise: ${object.sunrise} </span> <span>Sunset: ${
+    object.sunset
+  }</span>
+
+    </p>
         <h4 class="text-center">${object.cityName}</h4>
         <h5 class="text-center">${timeAndDate.givenDate(
           timeAndDate.givenDate
@@ -94,6 +101,7 @@ function displayInsertion(object) {
   </div>
 </div>`;
   DOMStrings.insertionPoint.insertAdjacentHTML("beforeend", html);
+  document.querySelector(".form").reset();
 }
 
 export { displayInsertion };

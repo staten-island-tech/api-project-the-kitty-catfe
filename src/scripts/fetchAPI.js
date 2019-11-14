@@ -14,7 +14,6 @@ const fetchAPI = {
         const longitude = locationData.results[0].geometry.location.lng;
         const cityName = locationData.results[0].formatted_address;
         fetchAPI.getWeatherLink(latitude, longitude, cityName);
-        document.querySelector(".form").reset();
       } catch {
         alert("Please enter a valid location.");
       }
@@ -36,7 +35,9 @@ const fetchAPI = {
         forecastGridLink,
         cityName
       );
-    } catch {}
+    } catch {
+      alert("Error retrieving one or more data links.");
+    }
   },
   async getWeather(
     latitude,
@@ -81,7 +82,9 @@ const fetchAPI = {
         sunset,
         cityName
       );
-    } catch {}
+    } catch {
+      alert("Error retrieving one or more data links.");
+    }
   }
 };
 export { fetchAPI };
