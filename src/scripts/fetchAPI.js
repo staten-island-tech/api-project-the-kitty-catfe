@@ -4,6 +4,7 @@ const fetchAPI = {
   getLocation() {
     DOMStrings.userInputClick.addEventListener("click", async function(event) {
       event.preventDefault();
+      event.stopImmediatePropagation();
       const zipcode = DOMStrings.userInputData.value.replace(" ", "+");
       try {
         const locationData = await fetch(
@@ -11,8 +12,7 @@ const fetchAPI = {
         ).then(result => result.json());
         const latitude = locationData.results[0].geometry.location.lat;
         const longitude = locationData.results[0].geometry.location.lng;
-        const cityName =
-          locationData.results[0].address_components[1].long_name;
+        const cityName = locationData.results[0].formatted_address;
         fetchAPI.getWeatherLink(latitude, longitude, cityName);
       } catch {
         alert("Please enter a valid location.");
@@ -81,6 +81,6 @@ const fetchAPI = {
         cityName
       );
     } catch {}
-  },
+  }
 };
 export { fetchAPI };
